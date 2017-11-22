@@ -1,1 +1,130 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Import bootstrap's functions, mixins and variables as much as needed.
+ */
+@import "../vendor/style/bootstrap/scss/functions";
+@import "../vendor/style/bootstrap/scss/variables";
+@import "../vendor/style/bootstrap/scss/mixins/breakpoints";
+@import "../vendor/style/bootstrap/scss/mixins/grid-framework";
+@import "../vendor/style/bootstrap/scss/mixins/grid";
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+$white-smoke   : #F5F5F5; // white
+$downy         : #79D1B0; // dull green
+$golden-tainoi : #FDC44F; // yellow
+$summer-sky    : #33BFDB; // blue
+$puerto-rico   : #5EBABA; // dull blue
+$turquoise     : #44DEDE; // light blue
+$atlantis      : #8DCF3F; // green
+$polo-blue     : #93B8CA; // dull blue
+$light-coral   : #F58E7E; // pink
+$empress       : #737373; // lite black
+$eclipse       : #383838; // dark black
+
+$color-background: $white-smoke;
+$color-base: $eclipse;
+$color-main: $downy;
+$color-accent: $golden-tainoi;
+
+/*
+ * Site default style
+ */
+body {
+  background-color: $color-background;
+  color: $color-base;
+  margin: 0;
+
+  font-family: "Noto Sans", "Times New Roman";
+}
+
+a {
+  color: $color-base;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $empress;
+  }
+}
+
+input {
+  height: 1.5rem;
+
+  border-radius: 2px;
+  border: none;
+
+  font-size: 1rem;
+}
+
+.sitehead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgba($atlantis, 0.8);
+
+  .wrap {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+}
+
+.global-nav {
+  &__list {
+    display: flex;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+$search-side: 14rem;
+.search {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+
+  width: $search-side;
+  height: $search-side;
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $light-coral;
+  border-radius: 2px;
+
+  textarea {
+    flex-grow: 2;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+
+    font-size: 1rem;
+  }
+}
+
+.language-selector {
+  display: flex;
+}
+
+.main-content-wrapper {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+.translate-site {
+  background-color: white;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.translate-site__site-name {
+  margin-top: 0;
+}
+
+.translate-site__result {
+  background-color: rgba(#f2f2f2, 0.8);
+  padding: 1rem;
+  border-radius: 2px;
+}
