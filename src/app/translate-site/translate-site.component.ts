@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { TranslateSiteService } from './translate-site.service'
 
 @Component({
@@ -11,15 +11,26 @@ export class TranslateSiteComponent implements OnInit {
   private last = ''
   private siteName = 'weblio'
 
+  @Input() searchText: string;
+  @Input() langFrom: string;
+  @Input() langTo: string;
+
   constructor(private translateSiteService: TranslateSiteService) { }
 
   ngOnInit() {
-    this.translateSiteService.getWeblio().subscribe(json => {
+  }
+
+  ngOnChanges() {
+    this.results = []
+    this.translate(this.langFrom, this.langTo, this.searchText)
+  }
+
+  private translate(langFrom:string, langTo:string, text: string) {
+    this.translateSiteService.getWeblio(langFrom, langTo, text).subscribe(json => {
       for(let i of <any>json) {
         this.results.push(i)
         this.last = i
       }
-      console.log(this.results)
     })
   }
 }
