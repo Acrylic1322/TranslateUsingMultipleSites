@@ -19,12 +19,12 @@
   <div class="language-selector">
     <div class="language-selector__item">
       <label for="" class="language-selector__item__text">EnToJp</label>
-      <input type="radio" class="language-selector__item__radio" name="languageSelector" id="languageSelectorEnToJp" value="en-to-jp">
+      <input type="radio" class="language-selector__item__radio" name="languageSelector" id="languageSelectorEnToJp" (change)="changeLanguage('en', 'jp')" checked="checked">
     </div>
 
     <div class="language-selector__item">
       <label for="" class="language-selector__item__text">JpToEn</label>
-      <input type="radio" class="language-selector__item__radio" name="languageSelector" id="languageSelectorJpToEn" value="jp-to-en">
+      <input type="radio" class="language-selector__item__radio" name="languageSelector" id="languageSelectorJpToEn" (change)="changeLanguage('jp', 'en')">
     </div>
   </div>
 </div>

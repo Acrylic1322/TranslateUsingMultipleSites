@@ -29,4 +29,11 @@ export class AppComponent {
       this.searchText = input;
     }, 1000)
   }
+
+  changeLanguage(langFrom: string, langTo: string) {
+    this.langFrom = langFrom;
+    this.langTo = langTo;
+
+    this.inputSearch(this.searchText);
+  }
 }
