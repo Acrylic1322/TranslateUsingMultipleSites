@@ -30,5 +30,5 @@
 </div>
 
 <div class="main-content-wrapper">
-  <app-translate-site [searchText]="searchText" [langFrom]="langFrom" [langTo]="langTo"></app-translate-site>
+  <app-translate-site *ngFor="let site of sites" [searchText]="searchText" [langFrom]="langFrom" [langTo]="langTo" [site]="site"></app-translate-site>
 </div>

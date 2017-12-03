@@ -14,7 +14,12 @@ export class AppComponent {
 
   searchText: string = '';
   langFrom: string = '';
-  langTo: string = ''
+  langTo: string = '';
+
+  sites: string[] = [
+    'weblio',
+    'excite'
+  ];
 
   constructor() {
     this.langFrom = 'en';

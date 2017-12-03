@@ -9,16 +9,19 @@ import { TranslateSiteService } from './translate-site.service'
 export class TranslateSiteComponent implements OnInit {
   private results:any = []
   private last = ''
-  private siteName = 'weblio'
+  private siteName = ''
   private loading = false;
 
   @Input() searchText: string;
   @Input() langFrom: string;
   @Input() langTo: string;
+  @Input() site: string;
 
   constructor(private translateSiteService: TranslateSiteService) { }
 
   ngOnInit() {
+    this.loading = false;
+    this.siteName = this.site.charAt(0).toUpperCase() + this.site.slice(1);
   }
 
   ngOnChanges() {
@@ -28,7 +31,7 @@ export class TranslateSiteComponent implements OnInit {
 
   private translate(langFrom:string, langTo:string, text: string) {
     this.loading = true;
-    this.translateSiteService.getWeblio(langFrom, langTo, text).subscribe(json => {
+    this.translateSiteService.getTranslate(langFrom, langTo, text, this.site).subscribe(json => {
       for(let i of <any>json) {
         this.results.push(i)
         this.last = i

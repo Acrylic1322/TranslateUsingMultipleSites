@@ -6,9 +6,9 @@ import { Subject } from 'rxjs/Subject';
 export class TranslateSiteService {
   constructor(private http: HttpClient) { }
 
-  getWeblio(langFrom: string, langTo: string, text: string) {
+  getTranslate(langFrom: string, langTo: string, text: string, site: string) {
     let url = 'http://127.0.0.1:8000/'
-    let get_url = encodeURI(url + "weblio/" + langFrom + "/" + langTo + "/?text=" + text)
+    let get_url = encodeURI(url + site + "/" + langFrom + "/" + langTo + "/?text=" + text)
     return this.http.get(get_url)
   }
 }
