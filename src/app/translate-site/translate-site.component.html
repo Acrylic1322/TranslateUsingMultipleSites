@@ -1,4 +1,7 @@
 <div class='translate-site'>
   <h2 class='translate-site__site-name'>{{siteName}}</h2>
+  <i class="fa fa-spinner fa-pulse fa-fw"
+     aria-hidden="true"
+    [ngClass]="loading ? 'translate-site__icon--loading': 'translate-site__icon--loaded'"></i>
   <p *ngFor='let oneResult of results' class='translate-site__result'>{{oneResult}}</p>
 </div>

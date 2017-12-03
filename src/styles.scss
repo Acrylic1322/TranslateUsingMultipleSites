@@ -25,6 +25,7 @@ $color-background: $white-smoke;
 $color-base: $eclipse;
 $color-main: $downy;
 $color-accent: $golden-tainoi;
+$translate-site-space: 1rem;
 
 /*
  * Site default style
@@ -115,8 +116,13 @@ $search-side: 14rem;
 
 .translate-site {
   background-color: white;
-  padding: 1rem;
+
+  padding: $translate-site-space;
   margin-top: 1rem;
+
+  z-index: -1;
+
+  position: relative;
 }
 
 .translate-site__site-name {
@@ -127,4 +133,21 @@ $search-side: 14rem;
   background-color: rgba(#f2f2f2, 0.8);
   padding: 1rem;
   border-radius: 2px;
+}
+
+.translate-site__icon {
+  position: absolute;
+  top: $translate-site-space;
+  right: $translate-site-space;
+
+  &--loaded {
+    @extend .translate-site__icon;
+    visibility: hidden;
+  }
+
+  &--loading {
+    @extend .translate-site__icon;
+    visibility: visible;
+  }
+
 }

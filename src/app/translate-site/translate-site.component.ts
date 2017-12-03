@@ -10,6 +10,7 @@ export class TranslateSiteComponent implements OnInit {
   private results:any = []
   private last = ''
   private siteName = 'weblio'
+  private loading = false;
 
   @Input() searchText: string;
   @Input() langFrom: string;
@@ -26,11 +27,13 @@ export class TranslateSiteComponent implements OnInit {
   }
 
   private translate(langFrom:string, langTo:string, text: string) {
+    this.loading = true;
     this.translateSiteService.getWeblio(langFrom, langTo, text).subscribe(json => {
       for(let i of <any>json) {
         this.results.push(i)
         this.last = i
       }
+      this.loading = false;
     })
   }
 }
