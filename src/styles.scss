@@ -36,6 +36,17 @@ body {
   margin: 0;
 
   font-family: "Noto Sans", "Times New Roman";
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+button {
+  background-color: initial;
+  border: initial;
+
+  outline: none;
 }
 
 a {
@@ -66,6 +77,10 @@ input {
   .wrap {
     @include make-container();
     @include make-container-max-widths();
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
@@ -76,6 +91,25 @@ input {
     list-style: none;
   }
 }
+
+.global-nav__list__item {
+  * {
+    font-size: 1.5rem;
+    
+    &:hover {
+      color: gray;
+    }
+  }
+
+}
+
+.global-nav__list__item--selected {
+  @extend .global-nav__list__item;
+  * {
+    color: gray;
+  }
+}
+
 
 $search-side: 14rem;
 .search {
@@ -112,6 +146,17 @@ $search-side: 14rem;
 .main-content-wrapper {
   @include make-container();
   @include make-container-max-widths();
+
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > * {
+    flex-shrink: 0;
+    max-width: 100%;
+    min-width: 30%;
+  }
 }
 
 .translate-site {

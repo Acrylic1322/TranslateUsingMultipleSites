@@ -16,6 +16,8 @@ export class AppComponent {
   langFrom: string = '';
   langTo: string = '';
 
+  layoutMode: string = 'line';
+
   sites: string[] = [
     'weblio',
     'excite',
@@ -41,5 +43,15 @@ export class AppComponent {
     this.langTo = langTo;
 
     this.inputSearch(this.searchText);
+  }
+
+  changeLayout(layout) {
+    switch(layout) {
+      case 'grid':
+      case 'line':
+        this.layoutMode = layout
+        break;
+    }
+    console.log(this.layoutMode)
   }
 }

@@ -5,9 +5,16 @@
     </h1>
     <nav class="global-nav">
       <ul class="global-nav__list">
-        <li class="global-nav__list__item">col-12</li>
-        <li class="global-nav__list__item">col-6</li>
-        <li class="global-nav__list__item">col-4</li>
+        <li [ngClass]="layoutMode == 'line' ? 'global-nav__list__item--selected' : 'global-nav__list__item'" >
+          <button id="btnChangeLayoutToGrid" (click)="changeLayout('line')">
+            <i class="fa fa-th-list" aria-hidden="true"></i>
+          </button>
+        </li>
+        <li [ngClass]="layoutMode == 'grid' ? 'global-nav__list__item--selected' : 'global-nav__list__item'" >
+          <button id="btnChangeLayoutToLine" (click)="changeLayout('grid')">
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -29,6 +36,6 @@
   </div>
 </div>
 
-<div class="main-content-wrapper">
+<div class="main-content-wrapper" [style.flex-flow]="layoutMode == 'line' ? 'column' : 'row'">
   <app-translate-site *ngFor="let site of sites" [searchText]="searchText" [langFrom]="langFrom" [langTo]="langTo" [site]="site"></app-translate-site>
 </div>
