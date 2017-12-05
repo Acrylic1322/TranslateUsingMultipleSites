@@ -18,7 +18,8 @@ export class AppComponent {
 
   sites: string[] = [
     'weblio',
-    'excite'
+    'excite',
+    'dictionary-com'
   ];
 
   constructor() {
