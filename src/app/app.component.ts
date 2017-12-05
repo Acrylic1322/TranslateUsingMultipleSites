@@ -23,7 +23,7 @@ export class AppComponent {
 
   constructor() {
     this.langFrom = 'en';
-    this.langTo = 'jp';
+    this.langTo = 'ja';
   }
 
   inputSearch(input: string) {
